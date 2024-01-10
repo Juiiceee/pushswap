@@ -6,9 +6,9 @@ void swap(t_stack **stack)
 
 	if (!stack)
 		return;
-	temp = last(*stack)->value;
-	last(*stack)->value = last(*stack)->prec->value;
-	last(*stack)->prec->value = temp;
+	temp = top(*stack)->value;
+	top(*stack)->value = top(*stack)->prec->value;
+	top(*stack)->prec->value = temp;
 }
 
 void sa(t_stack **stack)

@@ -27,7 +27,7 @@ int checkentry(int argc, char **argv)
 	return (1);
 }
 
-t_stack	*last(t_stack *stack)
+t_stack	*top(t_stack *stack)
 {
 	if (!stack)
 		return (NULL);
@@ -39,7 +39,6 @@ t_stack	*last(t_stack *stack)
 void	app(t_stack **stack, int n)
 {
 	t_stack *node;
-	t_stack	*lastnode;
 
 	node = malloc(sizeof(t_stack));
 	if (!node)
@@ -53,9 +52,8 @@ void	app(t_stack **stack, int n)
 	}
 	else
 	{
-		lastnode = last(*stack);
-		node->prec = lastnode;
-		lastnode->suiv = node;
+		node->prec = top(*stack);
+		top(*stack)->suiv = node;
 	}
 }
 
@@ -73,11 +71,23 @@ int	main(int argc, char **argv)
 {
 	//printf("%d", checkdigit(argv));
 	t_stack	*a;
+	t_stack	*b;
 	a = NULL;
+	b = NULL;
 	app(&a, 15);
 	app(&a, 16);
 	app(&a, 17);
 	app(&a, 18);
-	sa(&a);
+	app(&b, 45);
+	//sa(&a);
+	/*ft_printf("a = \n");
 	printstack(a);
+	ft_printf("b = \n");
+	printstack(b);
+	push(&a, &b);
+	ft_printf("a = \n");
+	printstack(a);
+	ft_printf("b = \n");
+	printstack(b);*/
+	printf("%d", a->value);
 }

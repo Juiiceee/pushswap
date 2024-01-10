@@ -14,11 +14,13 @@ typedef struct s_stack
 }	t_stack;
 
 char	**ft_split(char const *s, char c);
-t_stack	*last(t_stack *stack);
+t_stack	*top(t_stack *stack);
 
 void 	swap(t_stack **stack);
 void	sa(t_stack **stack);
 void	sb(t_stack **stack);
 void 	ss(t_stack **a, t_stack **b);
+
+void push(t_stack **a, t_stack **b);
 
 #endif
