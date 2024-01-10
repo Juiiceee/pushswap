@@ -24,6 +24,7 @@ int checkentry(int argc, char **argv)
 {
 	if (!checkdigit(argv) || argc == 1)
 		return (0);
+	return (1);
 }
 
 t_stack	*last(t_stack *stack)
@@ -77,5 +78,6 @@ int	main(int argc, char **argv)
 	app(&a, 16);
 	app(&a, 17);
 	app(&a, 18);
+	sa(&a);
 	printstack(a);
 }
