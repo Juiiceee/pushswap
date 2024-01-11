@@ -57,14 +57,26 @@ void	app(t_stack **stack, int n)
 	}
 }
 
-void	printstack(t_stack *stack)
+void	printstack(t_stack *a, t_stack *b)
 {
-	while (stack->suiv)
+	ft_printf("a = \n");
+	if (a)
+		ft_printf("NULL -> ");
+	while (a)
 	{
-		printf("%d\n", stack->value);
-		stack = stack->suiv;
+		ft_printf("%d -> ", a->value);
+		a = a->suiv;
 	}
-	printf("%d\n", stack->value);
+	ft_printf("NULL");
+	ft_printf("\nb = \n");
+	if (b)
+		ft_printf("NULL -> ");
+	while (b)
+	{
+		ft_printf("%d -> ", b->value);
+		b = b->suiv;
+	}
+	ft_printf("NULL\n");
 }
 
 int	main(int argc, char **argv)
@@ -89,5 +101,8 @@ int	main(int argc, char **argv)
 	printstack(a);
 	ft_printf("b = \n");
 	printstack(b);*/
-	printf("%d", a->value);
+	pa(&a, &b);
+	printstack(a, b);
+	pb(&b, &a);
+	printstack(a, b);
 }
