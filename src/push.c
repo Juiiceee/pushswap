@@ -7,10 +7,7 @@ void	push(t_stack **dst, t_stack **src)
 
 	if (!(*src))
 		return ;
-	sour = *src;
-
-	while (sour->suiv != NULL)
-		sour = sour->suiv;
+	sour = top(*src);
 	if (sour->prec)
 		sour->prec->suiv = NULL;
 	else
@@ -21,9 +18,7 @@ void	push(t_stack **dst, t_stack **src)
 		*dst = sour;
 	else
 	{
-		dest = *dst;
-		while (dest->suiv != NULL)
-			dest = dest->suiv;
+		dest = top(*dst);
 		dest->suiv = sour;
 		sour->prec = dest;
 	}

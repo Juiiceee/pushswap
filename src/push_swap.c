@@ -79,9 +79,21 @@ void	printstack(t_stack *a, t_stack *b)
 	ft_printf("NULL\n");
 }
 
+void	freelist(t_stack *stack)
+{
+	t_stack	*temp;
+
+	while (stack)
+	{
+		temp = stack;
+		stack = stack->suiv;
+		free(temp);
+	}
+}
+
 int	main(int argc, char **argv)
 {
-	//printf("%d", checkdigit(argv));
+	(void)argc, (void)argv;
 	t_stack	*a;
 	t_stack	*b;
 	a = NULL;
@@ -92,17 +104,10 @@ int	main(int argc, char **argv)
 	app(&a, 18);
 	app(&b, 45);
 	//sa(&a);
-	/*ft_printf("a = \n");
-	printstack(a);
-	ft_printf("b = \n");
-	printstack(b);
-	push(&a, &b);
-	ft_printf("a = \n");
-	printstack(a);
-	ft_printf("b = \n");
-	printstack(b);*/
 	pa(&a, &b);
 	printstack(a, b);
 	pb(&b, &a);
 	printstack(a, b);
+	freelist(a);
+	freelist(b);
 }

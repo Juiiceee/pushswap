@@ -6,7 +6,7 @@
 #    By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 15:57:01 by lbehr             #+#    #+#              #
-#    Updated: 2024/01/10 16:39:49 by lbehr            ###   ########.fr        #
+#    Updated: 2024/01/11 13:56:55 by lbehr            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 CC			:= cc
 #NORM		:= norminette $(SRC_DIR)/*.c inc/*.h 
-#CFLAGS		:= -Wall -Wextra -Werror -g3
+CFLAGS		:= -Wall -Wextra -Werror -g3
 RM			:= rm -rf
 DIR_DUP     = mkdir -p $(@D)
 
