@@ -9,12 +9,15 @@
 
 char	**ft_split(char const *s, char c);
 
-int	rotate(t_stack **stack);
+void	rotate(t_stack **stack);
+void	ra(t_stack **stack);
+void	rb(t_stack **stack);
+void	rr(t_stack **a, t_stack **b);
 
-void 	swap(t_stack **stack);
+void	swap(t_stack **stack);
 void	sa(t_stack **stack);
 void	sb(t_stack **stack);
-void 	ss(t_stack **a, t_stack **b);
+void	ss(t_stack **a, t_stack **b);
 
 //void push(t_stack **a, t_stack **b);
 void	push(t_stack **dst, t_stack **src);

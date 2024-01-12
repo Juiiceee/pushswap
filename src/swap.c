@@ -11,21 +11,6 @@ void swap(t_stack **stack)
 	ft_lstlast(*stack)->prec->value = temp;
 }
 
-int	rotate(t_stack **stack)
-{
-	t_stack	*head;
-	t_stack	*tail;
-
-	if (ft_lstsize(*stack) < 2)
-		return (-1);
-	head = *stack;
-	tail = ft_lstlast(head);
-	*stack = head->next;
-	head->next = NULL;
-	tail->next = head;
-	return (0);
-}
-
 void sa(t_stack **stack)
 {
 	swap(stack);
