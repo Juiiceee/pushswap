@@ -111,9 +111,10 @@ int	main(int argc, char **argv)
 	sb(&b);
 	//pb(&b, &a);*/
 	//sa(&a);
-	pa(&a, &b);
-	pa(&a, &b);
-	//rotate(&b);
+	//pa(&a, &b);
+	//pa(&a, &b);
+	reverse_rotate(&a);
+	//rotate(&a);
 	printstack(a, b);
 	freelist(a, b);
 }

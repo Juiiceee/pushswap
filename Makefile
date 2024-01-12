@@ -6,14 +6,14 @@
 #    By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 15:57:01 by lbehr             #+#    #+#              #
-#    Updated: 2024/01/12 13:01:24 by lbehr            ###   ########.fr        #
+#    Updated: 2024/01/12 15:56:24 by lbehr            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= bin/push
 SRC_DIR		:= src
 OBJ_DIR		:= obj
-SRCS		:= push_swap.c swap.c push.c rotate.c
+SRCS		:= push_swap.c swap.c push.c rotate.c reverse_rotate.c
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 CC			:= cc

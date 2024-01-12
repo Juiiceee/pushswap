@@ -9,7 +9,34 @@ void	reverse_rotate(t_stack **stack)
 		return;
 	front = *stack;
 	back = ft_lstlast(front);
-	stack = back;
-	back->prec = NULL;
-	
+	while (front)
+	{
+		if (front->next->next == NULL)
+		{
+			 front->next = NULL;
+			 break ;
+		}
+		front = front->next;
+	}
+	back->next = *stack;
+	*stack = back;
+	return;
+}
+
+void	rra(t_stack **stack)
+{
+	reverse_rotate(stack);
+	ft_printf("rra\n");
+}
+
+void	rrb(t_stack **stack)
+{
+	reverse_rotate(stack);
+	ft_printf("rrb\n");
+}
+
+void	rrr(t_stack **stack)
+{
+	reverse_rotate(stack);
+	ft_printf("rrr\n");
 }

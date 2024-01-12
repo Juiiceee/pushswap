@@ -23,4 +23,6 @@ void	push(t_stack **dst, t_stack **src);
 void	pa(t_stack **dst, t_stack **src);
 void	pb(t_stack **dst, t_stack **src);
 
+void	reverse_rotate(t_stack **stack);
+
 #endif
