@@ -19,7 +19,6 @@ void	sa(t_stack **stack);
 void	sb(t_stack **stack);
 void	ss(t_stack **a, t_stack **b);
 
-//void push(t_stack **a, t_stack **b);
 void	push(t_stack **dst, t_stack **src);
 void	pa(t_stack **dst, t_stack **src);
 void	pb(t_stack **dst, t_stack **src);

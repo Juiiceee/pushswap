@@ -27,15 +27,6 @@ int checkentry(int argc, char **argv)
 	return (1);
 }
 
-t_stack	*ft_lstlast(t_stack *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
-}
-
 void	app(t_stack **stack, int n)
 {
 	t_stack *node;
@@ -119,7 +110,8 @@ int	main(int argc, char **argv)
 	printstack(a, b);
 	sb(&b);
 	//pb(&b, &a);*/
-	rotate(&b);
+	sa(&a);
+	//rotate(&b);
 	printstack(a, b);
 	freelist(a, b);
 }

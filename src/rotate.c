@@ -10,7 +10,9 @@ void	rotate(t_stack **stack)
 	front = *stack;
 	back = ft_lstlast(front);
 	*stack = front->next;
+	front->next->prec = NULL;
 	front->next = NULL;
+	front->prec = back;
 	back->next = front;
 	return;
 }

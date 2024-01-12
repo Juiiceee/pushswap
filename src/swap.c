@@ -3,12 +3,14 @@
 void swap(t_stack **stack)
 {
 	int temp;
+	t_stack	*st;
 
-	if (!stack)
+	if (!stack || ft_lstsize(*stack) <= 1)
 		return;
-	temp = ft_lstlast(*stack)->value;
-	ft_lstlast(*stack)->value = ft_lstlast(*stack)->prec->value;
-	ft_lstlast(*stack)->prec->value = temp;
+	st = *stack;
+	temp = st->value;
+	st->value = st->next->value;
+	st->next->value = temp;
 }
 
 void sa(t_stack **stack)
