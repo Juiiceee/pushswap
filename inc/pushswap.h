@@ -4,17 +4,12 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "../include/ft_printf.h"
-
-typedef struct s_stack
-{
-	int		value;
-	struct s_stack	*prec;
-	struct s_stack	*suiv;
-}	t_stack;
+# include "../include/ft_printf/ft_printf.h"
+# include "../include/liste/t_list.h"
 
 char	**ft_split(char const *s, char c);
-t_stack	*top(t_stack *stack);
+
+int	rotate(t_stack **stack);
 
 void 	swap(t_stack **stack);
 void	sa(t_stack **stack);

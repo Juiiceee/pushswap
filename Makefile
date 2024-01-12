@@ -6,7 +6,7 @@
 #    By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 15:57:01 by lbehr             #+#    #+#              #
-#    Updated: 2024/01/11 13:56:55 by lbehr            ###   ########.fr        #
+#    Updated: 2024/01/12 12:05:56 by lbehr            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,9 @@ norm	:
 
 $(NAME)	:	$(OBJS)
 	$(DIR_DUP)
-	@make -C include --no-print-directory
-	$(CC) $(OBJS) include/libftprintf.a -o $(NAME)
+	@make -C include/ft_printf --no-print-directory
+	@make -C include/liste --no-print-directory
+	$(CC) $(OBJS) include/ft_printf/libftprintf.a include/liste/liste.a -o $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(DIR_DUP)
@@ -39,11 +40,13 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 clean	:
 	$(RM) $(OBJS)
 	$(RM) $(OBJ_DIR)
-	@make -C include clean --no-print-directory
+	@make -C include/ft_printf clean --no-print-directory
+	@make -C include/liste clean --no-print-directory
 
 fclean	:	clean
 	$(RM) bin
-	@make -C include fclean --no-print-directory
+	@make -C include/ft_printf fclean --no-print-directory
+	@make -C include/liste fclean --no-print-directory
 
 re		:	fclean all
 

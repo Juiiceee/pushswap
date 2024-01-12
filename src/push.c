@@ -7,19 +7,19 @@ void	push(t_stack **dst, t_stack **src)
 
 	if (!(*src))
 		return ;
-	sour = top(*src);
+	sour = ft_lstlast(*src);
 	if (sour->prec)
-		sour->prec->suiv = NULL;
+		sour->prec->next = NULL;
 	else
 		*src = NULL;
 	sour->prec = NULL;
-	sour->suiv = NULL;
+	sour->next = NULL;
 	if(!(*dst))
 		*dst = sour;
 	else
 	{
-		dest = top(*dst);
-		dest->suiv = sour;
+		dest = ft_lstlast(*dst);
+		dest->next = sour;
 		sour->prec = dest;
 	}
 }

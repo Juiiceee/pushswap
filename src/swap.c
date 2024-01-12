@@ -6,9 +6,24 @@ void swap(t_stack **stack)
 
 	if (!stack)
 		return;
-	temp = top(*stack)->value;
-	top(*stack)->value = top(*stack)->prec->value;
-	top(*stack)->prec->value = temp;
+	temp = ft_lstlast(*stack)->value;
+	ft_lstlast(*stack)->value = ft_lstlast(*stack)->prec->value;
+	ft_lstlast(*stack)->prec->value = temp;
+}
+
+int	rotate(t_stack **stack)
+{
+	t_stack	*head;
+	t_stack	*tail;
+
+	if (ft_lstsize(*stack) < 2)
+		return (-1);
+	head = *stack;
+	tail = ft_lstlast(head);
+	*stack = head->next;
+	head->next = NULL;
+	tail->next = head;
+	return (0);
 }
 
 void sa(t_stack **stack)
@@ -20,7 +35,7 @@ void sa(t_stack **stack)
 void sb(t_stack **stack)
 {
 	swap(stack);
-	ft_printf("sa\n");
+	ft_printf("sb\n");
 }
 
 void ss(t_stack **a, t_stack **b)

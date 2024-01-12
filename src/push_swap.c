@@ -27,12 +27,12 @@ int checkentry(int argc, char **argv)
 	return (1);
 }
 
-t_stack	*top(t_stack *stack)
+t_stack	*ft_lstlast(t_stack *stack)
 {
 	if (!stack)
 		return (NULL);
-	while (stack->suiv)
-		stack = stack->suiv;
+	while (stack->next)
+		stack = stack->next;
 	return (stack);
 }
 
@@ -43,7 +43,7 @@ void	app(t_stack **stack, int n)
 	node = malloc(sizeof(t_stack));
 	if (!node)
 		return ;
-	node->suiv = NULL;
+	node->next = NULL;
 	node->value = n;
 	if (!(*stack))
 	{
@@ -52,8 +52,8 @@ void	app(t_stack **stack, int n)
 	}
 	else
 	{
-		node->prec = top(*stack);
-		top(*stack)->suiv = node;
+		node->prec = ft_lstlast(*stack);
+		ft_lstlast(*stack)->next = node;
 	}
 }
 
@@ -65,7 +65,7 @@ void	printstack(t_stack *a, t_stack *b)
 	while (a)
 	{
 		ft_printf("%d -> ", a->value);
-		a = a->suiv;
+		a = a->next;
 	}
 	ft_printf("NULL");
 	ft_printf("\nb = \n");
@@ -74,19 +74,25 @@ void	printstack(t_stack *a, t_stack *b)
 	while (b)
 	{
 		ft_printf("%d -> ", b->value);
-		b = b->suiv;
+		b = b->next;
 	}
 	ft_printf("NULL\n");
 }
 
-void	freelist(t_stack *stack)
+void	freelist(t_stack *a, t_stack *b)
 {
 	t_stack	*temp;
 
-	while (stack)
+	while (a)
 	{
-		temp = stack;
-		stack = stack->suiv;
+		temp = a;
+		a = a->next;
+		free(temp);
+	}
+	while (b)
+	{
+		temp = b;
+		b = b->next;
 		free(temp);
 	}
 }
@@ -103,11 +109,17 @@ int	main(int argc, char **argv)
 	app(&a, 17);
 	app(&a, 18);
 	app(&b, 45);
+	app(&b, 47);
 	//sa(&a);
-	pa(&a, &b);
+	//pa(&a, &b);
+	printstack(a, b);
+	/*sa(&a);
 	printstack(a, b);
 	pb(&b, &a);
 	printstack(a, b);
-	freelist(a);
-	freelist(b);
+	sb(&b);
+	//pb(&b, &a);*/
+	rotate(&b);
+	printstack(a, b);
+	freelist(a, b);
 }
