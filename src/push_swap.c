@@ -110,7 +110,9 @@ int	main(int argc, char **argv)
 	printstack(a, b);
 	sb(&b);
 	//pb(&b, &a);*/
-	sa(&a);
+	//sa(&a);
+	pa(&a, &b);
+	pa(&a, &b);
 	//rotate(&b);
 	printstack(a, b);
 	freelist(a, b);

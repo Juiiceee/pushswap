@@ -2,25 +2,25 @@
 
 void	push(t_stack **dst, t_stack **src)
 {
-	t_stack *dest;
-	t_stack	*sour;
+	t_stack	*temp;
 
 	if (!(*src))
 		return ;
-	sour = ft_lstlast(*src);
-	if (sour->prec)
-		sour->prec->next = NULL;
-	else
-		*src = NULL;
-	sour->prec = NULL;
-	sour->next = NULL;
-	if(!(*dst))
-		*dst = sour;
+	temp = *src;
+	*src = (*src)->next;
+	if (*src)
+		(*src)->prec = NULL;
+	if (!(*dst))
+	{
+		*dst = temp;
+		(*dst)->next = NULL;
+		(*dst)->prec = NULL;
+	}
 	else
 	{
-		dest = ft_lstlast(*dst);
-		dest->next = sour;
-		sour->prec = dest;
+		temp->next = *dst;
+		(*dst)->prec = temp;
+		*dst = temp;
 	}
 }
 void	pa(t_stack **dst, t_stack **src)
