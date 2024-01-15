@@ -6,11 +6,11 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 06:32:29 by lbehr             #+#    #+#             */
-/*   Updated: 2024/01/09 12:15:27 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/01/12 18:14:59 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../inc/pushswap.h"
 
 int	countword(char const *s, char c)
 {

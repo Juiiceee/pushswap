@@ -1,120 +1,109 @@
 #include "../inc/pushswap.h"
 
-int	checkdigit(char **argv)
+int	checkdigit(char *argv)
 {
 	int	i;
-	int	j;
 
 	i = 1;
 	while (argv[i])
 	{
-		j = 0;
-		while (argv[i][j])
-		{
-			if (!(argv[i][j] >= 48 && argv[i][j] <= 57))
-				return (0);
-			j++;
-		}
+		if (!(argv[i] >= 48 && argv[i] <= 57))
+			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int checkentry(int argc, char **argv)
+void	freetab(char **str)
 {
-	if (!checkdigit(argv) || argc == 1)
-		return (0);
-	return (1);
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }
 
-void	app(t_stack **stack, int n)
+void checkentry(int argc, char **argv)
 {
-	t_stack *node;
+	char		**str;
+	long long	nb;
+	int			i;
 
-	node = malloc(sizeof(t_stack));
-	if (!node)
-		return ;
-	node->next = NULL;
-	node->value = n;
-	if (!(*stack))
+	i = 1;
+	if (argc == 2)
 	{
-		*stack = node;
-		node->prec = NULL;
+		str = ft_split(argv[1], ' ');
+		i = 0;
 	}
 	else
+		str = argv;
+	while (str[i])
 	{
-		node->prec = ft_lstlast(*stack);
-		ft_lstlast(*stack)->next = node;
+		if (!checkdigit(str[i]))
+			error("Ce ne sont pas que des nombres");
+		nb = ft_atoi(str[i]);
+		if (nb < -2147483648 || nb > 2147483647)
+			error("Nombre plus grand qu'un int");
+		i++;
 	}
+	if (argc == 2)
+		freetab(str);
 }
 
-void	printstack(t_stack *a, t_stack *b)
+void	inititstack(t_stack **stack, int argc, char **argv)
 {
-	ft_printf("a = \n");
-	if (a)
-		ft_printf("NULL -> ");
-	while (a)
+	char		**str;
+	int	nb;
+	int			i;
+
+	i = 1;
+	if (argc == 2)
 	{
-		ft_printf("%d -> ", a->value);
-		a = a->next;
+		str = ft_split(argv[1], ' ');
+		i = 0;
 	}
-	ft_printf("NULL");
-	ft_printf("\nb = \n");
-	if (b)
-		ft_printf("NULL -> ");
-	while (b)
+	else
+		str = argv;
+	while (str[i])
 	{
-		ft_printf("%d -> ", b->value);
-		b = b->next;
+		nb = (int)ft_atoi(str[i]);
+		app(stack, nb);
+		i++;
 	}
-	ft_printf("NULL\n");
+	if (argc == 2)
+		freetab(str);
 }
 
-void	freelist(t_stack *a, t_stack *b)
+int	istrie(t_stack *stack)
 {
-	t_stack	*temp;
-
-	while (a)
+	while (stack->next)
 	{
-		temp = a;
-		a = a->next;
-		free(temp);
+		if (!(stack->value < stack->next->value))
+			return (0);
+		stack = stack->next;
 	}
-	while (b)
-	{
-		temp = b;
-		b = b->next;
-		free(temp);
-	}
+	return (1);
 }
 
 int	main(int argc, char **argv)
 {
-	(void)argc, (void)argv;
+	/*char *argv[] = {"push_swap", "15 48 78 59 26 15 48 59 36 25"};
+	int	argc = 2;*/
 	t_stack	*a;
 	t_stack	*b;
+
+	if (argc < 2)
+		error("Nombre d'argument trop faible");
+	checkentry(argc, argv);
 	a = NULL;
 	b = NULL;
-	app(&a, 15);
-	app(&a, 16);
-	app(&a, 17);
-	app(&a, 18);
-	app(&b, 45);
-	app(&b, 47);
-	//sa(&a);
-	//pa(&a, &b);
-	printstack(a, b);
-	/*sa(&a);
-	printstack(a, b);
-	pb(&b, &a);
-	printstack(a, b);
-	sb(&b);
-	//pb(&b, &a);*/
-	//sa(&a);
-	//pa(&a, &b);
-	//pa(&a, &b);
-	reverse_rotate(&a);
-	//rotate(&a);
+	inititstack(&a, argc, argv);
+	if (istrie(a))
+		return (freelist(a, b), ft_printf("Ta pile est trie"), 1);
 	printstack(a, b);
 	freelist(a, b);
 }

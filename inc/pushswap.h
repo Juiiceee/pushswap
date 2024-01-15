@@ -24,5 +24,16 @@ void	pa(t_stack **dst, t_stack **src);
 void	pb(t_stack **dst, t_stack **src);
 
 void	reverse_rotate(t_stack **stack);
+void	rra(t_stack **stack);
+void	rrb(t_stack **stack);
+void	rrr(t_stack **stack);
+
+void	app(t_stack **stack, int n);
+void	printstack(t_stack *a, t_stack *b);
+void	ft_putstr_fd(char *s, int fd);
+void	error(char *str);
+void	freelist(t_stack *a, t_stack *b);
+
+long long	ft_atoi(const char *nptr);
 
 #endif
