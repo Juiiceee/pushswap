@@ -1,48 +1,5 @@
 #include "../inc/pushswap.h"
 
-void	app(t_stack **stack, int n)
-{
-	t_stack *node;
-
-	node = malloc(sizeof(t_stack));
-	if (!node)
-		return ;
-	node->next = NULL;
-	node->value = n;
-	if (!(*stack))
-	{
-		*stack = node;
-		node->prec = NULL;
-	}
-	else
-	{
-		node->prec = ft_lstlast(*stack);
-		ft_lstlast(*stack)->next = node;
-	}
-}
-
-void	printstack(t_stack *a, t_stack *b)
-{
-	ft_printf("a = \n");
-	if (a)
-		ft_printf("NULL -> ");
-	while (a)
-	{
-		ft_printf("%d -> ", a->value);
-		a = a->next;
-	}
-	ft_printf("NULL");
-	ft_printf("\nb = \n");
-	if (b)
-		ft_printf("NULL -> ");
-	while (b)
-	{
-		ft_printf("%d -> ", b->value);
-		b = b->next;
-	}
-	ft_printf("NULL\n");
-}
-
 void	ft_putstr_fd(char *s, int fd)
 {
 	if (!s)
@@ -77,4 +34,17 @@ void	freelist(t_stack *a, t_stack *b)
 		b = b->next;
 		free(temp);
 	}
+}
+
+void	freetab(char **str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		free(str[i]);
+		i++;
+	}
+	free(str);
 }

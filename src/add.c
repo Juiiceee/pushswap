@@ -30,3 +30,48 @@ long long	ft_atoi(const char *nptr)
 	total = total * signe;
 	return (total);
 }
+
+void	app(t_stack **stack, int n)
+{
+	t_stack *node;
+
+	node = malloc(sizeof(t_stack));
+	if (!node)
+		return ;
+	node->next = NULL;
+	node->value = n;
+	if (!(*stack))
+	{
+		*stack = node;
+		node->prec = NULL;
+	}
+	else
+	{
+		node->prec = ft_lstlast(*stack);
+		ft_lstlast(*stack)->next = node;
+	}
+}
+
+void	inititstack(t_stack **stack, int argc, char **argv)
+{
+	char		**str;
+	int	nb;
+	int			i;
+
+	i = 1;
+	if (argc == 2)
+	{
+		str = ft_split(argv[1], ' ');
+		i = 0;
+	}
+	else
+		str = argv;
+	while (str[i])
+	{
+		nb = (int)ft_atoi(str[i]);
+		app(stack, nb);
+		i++;
+	}
+	if (argc == 2)
+		freetab(str);
+}
