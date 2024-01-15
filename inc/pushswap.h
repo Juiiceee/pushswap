@@ -36,7 +36,7 @@ void		app(t_stack **stack, int n);
 long long	ft_atoi(const char *nptr);
 void		inititstack(t_stack **stack, int argc, char **argv);
 
-//checkarg.c
+//checkarg.c 
 int			checkdigit(char *argv);
 void		checkentry(int argc, char **argv);
 
