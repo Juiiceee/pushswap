@@ -20,7 +20,7 @@ void	printstack(t_stack *a, t_stack *b)
 		b = b->next;
 	}
 	ft_printf("NULL\n");
-}
+} 
 
 int	istrie(t_stack *stack)
 {
