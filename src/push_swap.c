@@ -50,6 +50,7 @@ int	main(/*int argc, char **argv*/)
 		return (freelist(a, b), ft_printf("Ta pile est trie"), 1);
 	printstack(a, b);
 	//sortsimple(&a);
+	sa(&a);
 	rra(&a);
 	printstack(a, b);
 	freelist(a, b);

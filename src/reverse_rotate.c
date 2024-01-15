@@ -12,6 +12,23 @@ void	reverse_rotate(t_stack **stack)
 	*stack = back;
 	(*stack)->next = tmp;
 	front->next = NULL;
+
+	/*if (ft_lstsize(*stack) <= 1)
+		return;
+	front = *stack;
+	back = ft_lstlast(front);
+	while (front)
+	{
+		if (front->next->next == NULL)
+		{
+			 front->next = NULL;
+			 break ;
+		}
+		front = front->next;
+	}
+	back->next = *stack;
+	*stack = back;
+	return;*/
 }
 
 void	rra(t_stack **stack)
