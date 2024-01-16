@@ -24,6 +24,7 @@ void	cas3(t_stack **stack)
 	}
 	else if (st->value < st->next->value && st->value > st->next->next->value)
 		rra(&st);
+	*stack = st;
 }
 
 void	sortsimple(t_stack **stack)
