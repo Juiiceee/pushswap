@@ -33,10 +33,10 @@ int	istrie(t_stack *stack)
 	return (1);
 }
 
-int	main(int argc, char **argv)
+int	main(/*int argc, char **argv*/)
 {
-	/*char *argv[] = {"push_swap", "15 48 78 59 26 15 48 59 36 25"};
-	int	argc = 2;*/
+	char *argv[] = {"push_swap", "2 3 1"};
+	int	argc = 2;
 	t_stack	*a;
 	t_stack	*b;
 
@@ -48,6 +48,8 @@ int	main(int argc, char **argv)
 	inititstack(&a, argc, argv);
 	if (istrie(a))
 		return (freelist(a, b), ft_printf("Ta pile est trie"), 1);
+	printstack(a, b);
+	sortsimple(&a);
 	printstack(a, b);
 	freelist(a, b);
 }

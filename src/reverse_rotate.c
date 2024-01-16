@@ -4,8 +4,17 @@ void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*front;
 	t_stack	*back;
+	t_stack	*tmp;
 
-	if (ft_lstsize(*stack) <= 1)
+	back = ft_lstlast(*stack);
+	front = ft_lstlast(*stack)->prec;
+	tmp = *stack;
+	*stack = back;
+	(*stack)->next = tmp;
+	front->next = NULL;
+	(*stack)->prec = NULL;
+	(*stack)->next->prec = *stack;
+	/*if (ft_lstsize(*stack) <= 1)
 		return;
 	front = *stack;
 	back = ft_lstlast(front);
@@ -20,7 +29,7 @@ void	reverse_rotate(t_stack **stack)
 	}
 	back->next = *stack;
 	*stack = back;
-	return;
+	return;*/
 }
 
 void	rra(t_stack **stack)
