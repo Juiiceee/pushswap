@@ -6,7 +6,7 @@
 #    By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 15:57:01 by lbehr             #+#    #+#              #
-#    Updated: 2024/01/16 13:17:02 by lbehr            ###   ########.fr        #
+#    Updated: 2024/01/16 13:30:12 by lbehr            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ all		: $(NORM) $(NAME)
 
 norm	:
 	$(NORM)
- 
+
 $(NAME)	:	$(OBJS)
 	$(DIR_DUP)
 	@make -C include/ft_printf --no-print-directory
