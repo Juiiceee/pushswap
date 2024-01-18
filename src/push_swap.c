@@ -35,7 +35,7 @@ int	istrie(t_stack *stack)
 
 int	main(/*int argc, char **argv*/)
 {
-	char *argv[] = {"push_swap", "2 3 0 5 1"};
+	char *argv[] = {"push_swap", "2 3 2 5 1"};
 	int	argc = 2;
 	t_stack	*a;
 	t_stack	*b;
@@ -46,12 +46,13 @@ int	main(/*int argc, char **argv*/)
 	a = NULL;
 	b = NULL;
 	inititstack(&a, argc, argv);
+	if (istrie(a))
+		return (freelist(a, b), ft_printf("Ta pile est trie"), 1);
 	putindex(&a);
+	if (ft_lstsize(a) <= 5)
+		sortsimple(&a, &b);
 	//ft_printf("%d", ismin(a));
-	/*if (istrie(a))
-		return (freelist(a, b), ft_printf("Ta pile est trie"), 1);*/
 	//printstack(a, b);
-	sortsimple(&a, &b);
-	//printstack(a, b);
+	printstack(a, b);
 	freelist(a, b);
 }

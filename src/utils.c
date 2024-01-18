@@ -48,3 +48,24 @@ void	freetab(char **str)
 	}
 	free(str);
 }
+
+int	checkdoublon(char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (argv[i])
+	{
+		j = 0;
+		while (argv[j])
+		{
+			if ((ft_atoi(argv[i]) == ft_atoi(argv[j])) && j != i)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}

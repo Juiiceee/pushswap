@@ -45,6 +45,7 @@ void		ft_putstr_fd(char *s, int fd);
 void		error(char *str);
 void		freelist(t_stack *a, t_stack *b);
 void		freetab(char **str);
+int			checkdoublon(char **argv);
 
 //sortsimple.c
 void	sortsimple(t_stack **a, t_stack **b);
