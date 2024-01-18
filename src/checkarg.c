@@ -38,7 +38,7 @@ void checkentry(int argc, char **argv)
 		i++;
 	}
 	if (!checkdoublon(str))
-		return (freetab(str), error("Il y a des doublons"));
+		return (freetab(str), error("Il y a des doublons ou trop de nombre"));
 	if (argc == 2)
 		freetab(str);
 }

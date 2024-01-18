@@ -67,5 +67,7 @@ int	checkdoublon(char **argv)
 		}
 		i++;
 	}
+	if (i > 500)
+		return (0);
 	return (1);
 }

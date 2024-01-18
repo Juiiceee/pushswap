@@ -4,16 +4,13 @@ int	ismin(t_stack	*stack)
 {
 	int	i;
 	int nbr;
-	int j;
 
 	nbr = stack->value;
 	i = 0;
-	j = 0;
 	while (stack)
 	{
 		if(stack->value < nbr)
 			i++;
-		j++;
 		stack = stack->next;
 	}
 	return (i);
@@ -31,7 +28,7 @@ void	putindex(t_stack **stack)
 	while (1)
 	{
 		st = *stack;
-		i = 0;
+		i = 1;
 		while (st)
 		{
 			if(st->value < nbr)
@@ -45,4 +42,31 @@ void	putindex(t_stack **stack)
 			break;
 		sv = sv->next;
 	}
+}
+
+int	reppui(int nbr)
+{
+	int	i;
+	int	compte;
+
+	i = 0;
+	compte = 0;
+	while (i <= 8)
+	{
+		if ((1 << i) & nbr)
+			compte = i;
+		i++;
+	}
+	return (compte);
+}
+
+int	istrie(t_stack *stack)
+{
+	while (stack->next)
+	{
+		if (!(stack->value < stack->next->value))
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }

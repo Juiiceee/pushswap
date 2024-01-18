@@ -32,6 +32,7 @@ void		rrb(t_stack **stack);
 void		rrr(t_stack **stack);
 
 //add.c
+int			ft_isdigit(int c);
 void		app(t_stack **stack, int n);
 long long	ft_atoi(const char *nptr);
 void		inititstack(t_stack **stack, int argc, char **argv);
@@ -47,12 +48,26 @@ void		freelist(t_stack *a, t_stack *b);
 void		freetab(char **str);
 int			checkdoublon(char **argv);
 
-//sortsimple.c
-void	sortsimple(t_stack **a, t_stack **b);
+//sort2-3.c
+void		cas3(t_stack **stack);
+void		sortsimple(t_stack **a, t_stack **b);
+
+//sort3-4.c
+void		first(t_stack **a, t_stack **b);
+void		second(t_stack **a, t_stack **b);
+void		cas4(t_stack **a, t_stack **b);
+void		cas5(t_stack **a, t_stack **b);
+
+//sortcomplexe.c
+void		firsttri(t_stack **a, t_stack **b, int dec);
+void		sortcomplexe(t_stack **a, t_stack **b);
+int			nbelement(t_stack *a);
 
 //utilsort.c
-int	ismin(t_stack	*stack);
-void	putindex(t_stack **stack);
+int			ismin(t_stack	*stack);
+void		putindex(t_stack **stack);
+int			reppui(int nbr);
+int			istrie(t_stack *stack);
 
 void		printstack(t_stack *a, t_stack *b);
 

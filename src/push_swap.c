@@ -22,20 +22,9 @@ void	printstack(t_stack *a, t_stack *b)
 	ft_printf("NULL\n");
 } 
 
-int	istrie(t_stack *stack)
-{
-	while (stack->next)
-	{
-		if (!(stack->value < stack->next->value))
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
-
 int	main(/*int argc, char **argv*/)
 {
-	char *argv[] = {"push_swap", "2 3 2 5 1"};
+	char *argv[] = {"push_swap", "2 3 0 5 1 54"};
 	int	argc = 2;
 	t_stack	*a;
 	t_stack	*b;
@@ -51,6 +40,8 @@ int	main(/*int argc, char **argv*/)
 	putindex(&a);
 	if (ft_lstsize(a) <= 5)
 		sortsimple(&a, &b);
+	else
+		sortcomplexe(&a, &b);
 	//ft_printf("%d", ismin(a));
 	//printstack(a, b);
 	printstack(a, b);
