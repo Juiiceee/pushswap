@@ -6,6 +6,7 @@
 typedef struct s_stack
 {
 	int		value;
+	int		index;
 	struct s_stack	*prec;
 	struct s_stack	*next;
 }	t_stack;

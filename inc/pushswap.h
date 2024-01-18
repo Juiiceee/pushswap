@@ -47,7 +47,11 @@ void		freelist(t_stack *a, t_stack *b);
 void		freetab(char **str);
 
 //sortsimple.c
-void	sortsimple(t_stack **stack);
+void	sortsimple(t_stack **a, t_stack **b);
+
+//utilsort.c
+int	ismin(t_stack	*stack);
+void	putindex(t_stack **stack);
 
 void		printstack(t_stack *a, t_stack *b);
 
