@@ -1,5 +1,16 @@
-#include "../inc/pushswap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort2-3.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/22 11:36:02 by lbehr             #+#    #+#             */
+/*   Updated: 2024/01/22 11:36:06 by lbehr            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "../inc/pushswap.h"
 
 void	cas3(t_stack **stack)
 {
@@ -29,7 +40,6 @@ void	cas3(t_stack **stack)
 
 void	sortsimple(t_stack **a, t_stack **b)
 {
-
 	if (ft_lstsize(*a) == 2)
 		sa(a);
 	else if (ft_lstsize(*a) == 3)

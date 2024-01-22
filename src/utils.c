@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/22 11:36:58 by lbehr             #+#    #+#             */
+/*   Updated: 2024/01/22 17:17:01 by lbehr            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/pushswap.h"
 
 void	ft_putstr_fd(char *s, int fd)
@@ -15,6 +27,7 @@ void	error(char *str)
 {
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(str, 2);
+	ft_putstr_fd("\n", 2);
 	exit(0);
 }
 
@@ -47,27 +60,4 @@ void	freetab(char **str)
 		i++;
 	}
 	free(str);
-}
-
-int	checkdoublon(char **argv)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (argv[i])
-	{
-		j = 0;
-		while (argv[j])
-		{
-			if ((ft_atoi(argv[i]) == ft_atoi(argv[j])) && j != i)
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	if (i > 500)
-		return (0);
-	return (1);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/22 11:34:49 by lbehr             #+#    #+#             */
+/*   Updated: 2024/01/22 17:08:49 by lbehr            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/pushswap.h"
 
 void	printstack(t_stack *a, t_stack *b)
@@ -20,30 +32,27 @@ void	printstack(t_stack *a, t_stack *b)
 		b = b->next;
 	}
 	ft_printf("NULL\n");
-} 
+}
 
 int	main(/*int argc, char **argv*/)
 {
-	char *argv[] = {"push_swap", "2 3 0 5 1 54"};
-	int	argc = 2;
+	int argc = 2;
+	char *argv[] = {"coucou", "2147483660"};
 	t_stack	*a;
 	t_stack	*b;
 
 	if (argc < 2)
-		error("Nombre d'argument trop faible");
+		return (0);
 	checkentry(argc, argv);
 	a = NULL;
 	b = NULL;
 	inititstack(&a, argc, argv);
 	if (istrie(a))
-		return (freelist(a, b), ft_printf("Ta pile est trie"), 1);
+		return (freelist(a, b), 1);
 	putindex(&a);
 	if (ft_lstsize(a) <= 5)
 		sortsimple(&a, &b);
 	else
 		sortcomplexe(&a, &b);
-	//ft_printf("%d", ismin(a));
-	//printstack(a, b);
-	printstack(a, b);
 	freelist(a, b);
 }

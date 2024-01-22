@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pushswap.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/22 11:39:44 by lbehr             #+#    #+#             */
+/*   Updated: 2024/01/22 11:40:27 by lbehr            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
@@ -66,10 +78,8 @@ int			nbelement(t_stack *a);
 //utilsort.c
 int			ismin(t_stack	*stack);
 void		putindex(t_stack **stack);
-int			reppui(int nbr);
 int			istrie(t_stack *stack);
 
 void		printstack(t_stack *a, t_stack *b);
-
 
 #endif

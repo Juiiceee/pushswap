@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/22 11:33:46 by lbehr             #+#    #+#             */
+/*   Updated: 2024/01/22 11:34:05 by lbehr            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/pushswap.h"
 
 int	ft_isdigit(int c)
@@ -33,7 +45,7 @@ long long	ft_atoi(const char *nptr)
 
 void	app(t_stack **stack, int n)
 {
-	t_stack *node;
+	t_stack	*node;
 
 	node = malloc(sizeof(t_stack));
 	if (!node)
@@ -54,9 +66,9 @@ void	app(t_stack **stack, int n)
 
 void	inititstack(t_stack **stack, int argc, char **argv)
 {
-	char		**str;
-	int	nb;
-	int			i;
+	char	**str;
+	int		nb;
+	int		i;
 
 	i = 1;
 	if (argc == 2)

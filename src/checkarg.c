@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checkarg.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/22 11:34:22 by lbehr             #+#    #+#             */
+/*   Updated: 2024/01/22 17:09:06 by lbehr            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/pushswap.h"
 
 int	checkdigit(char *argv)
@@ -14,7 +26,7 @@ int	checkdigit(char *argv)
 	return (1);
 }
 
-void checkentry(int argc, char **argv)
+void	checkentry(int argc, char **argv)
 {
 	char		**str;
 	long long	nb;
@@ -31,14 +43,49 @@ void checkentry(int argc, char **argv)
 	while (str[i])
 	{
 		if (!checkdigit(str[i]))
-			return (freetab(str), error("Ce ne sont pas que des nombres"));
+			return (error("Ce ne sont pas que des nombres"));
 		nb = ft_atoi(str[i]);
 		if (nb < -2147483648 || nb > 2147483647)
-			return (freetab(str), error("Nombre plus grand qu'un int"));
+			return (error("Nombre plus grand qu'un int"));
 		i++;
 	}
 	if (!checkdoublon(str))
-		return (freetab(str), error("Il y a des doublons ou trop de nombre"));
+		return (error("Il y a des doublons ou trop de nombre"));
 	if (argc == 2)
 		freetab(str);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	while (*s1 && *s2)
+	{
+		if (*s1 != *s2)
+		{
+			return (*s1 - *s2);
+		}
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
+}
+
+int	checkdoublon(char **argv)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 0;
+	while (argv[i])
+	{
+		j = 0;
+		while (argv[j])
+		{
+			if (ft_strcmp(argv[i], argv[j]) == 0 && j != i)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }

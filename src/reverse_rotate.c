@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/22 11:35:33 by lbehr             #+#    #+#             */
+/*   Updated: 2024/01/22 11:35:38 by lbehr            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/pushswap.h"
 
 void	reverse_rotate(t_stack **stack)
@@ -14,22 +26,6 @@ void	reverse_rotate(t_stack **stack)
 	front->next = NULL;
 	(*stack)->prec = NULL;
 	(*stack)->next->prec = *stack;
-	/*if (ft_lstsize(*stack) <= 1)
-		return;
-	front = *stack;
-	back = ft_lstlast(front);
-	while (front)
-	{
-		if (front->next->next == NULL)
-		{
-			 front->next = NULL;
-			 break ;
-		}
-		front = front->next;
-	}
-	back->next = *stack;
-	*stack = back;
-	return;*/
 }
 
 void	rra(t_stack **stack)

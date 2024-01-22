@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sortcomplexe.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/22 11:36:20 by lbehr             #+#    #+#             */
+/*   Updated: 2024/01/22 11:36:26 by lbehr            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/pushswap.h"
 
 int	nbelement(t_stack *a)
@@ -16,17 +28,15 @@ int	nbelement(t_stack *a)
 void	firsttri(t_stack **a, t_stack **b, int dec)
 {
 	t_stack	*st;
-	int	i;
-	int	elem;
+	int		i;
+	int		elem;
 
 	elem = nbelement(*a);
 	st = *a;
 	i = 0;
 	while (elem--)
 	{
-		printf("le resultat = %d le dec = %d l'index = %d et la value = %d\n", (1 << dec) & st->index, dec, st->index, st->value);
-		printstack(*a, *b);
-		if ((1 << dec) & st->index)
+		if (!((1 << dec) & st->index))
 		{
 			st = st->next;
 			pb(b, a);
@@ -35,7 +45,7 @@ void	firsttri(t_stack **a, t_stack **b, int dec)
 		else
 		{
 			st = st->next;
-			rra(a);
+			ra(a);
 		}
 	}
 	while (i--)

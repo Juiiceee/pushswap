@@ -6,23 +6,23 @@
 #    By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 15:57:01 by lbehr             #+#    #+#              #
-#    Updated: 2024/01/18 16:57:07 by lbehr            ###   ########.fr        #
+#    Updated: 2024/01/22 17:12:14 by lbehr            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= bin/push
+NAME		:= bin/push_swap
 SRC_DIR		:= src
 OBJ_DIR		:= obj
 SRCS		:= push_swap.c swap.c push.c sortcomplexe.c sort2-3.c sort4-5.c rotate.c reverse_rotate.c checkarg.c utils.c add.c ft_split.c utilsort.c
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 CC			:= cc
-#NORM		:= norminette $(SRC_DIR)/*.c inc/*.h 
+#NORM		:= norminette $(SRC_DIR)/*.c inc/*.h include/*
 CFLAGS		:= -Wall -Wextra -Werror -g3
 RM			:= rm -rf
-DIR_DUP     = mkdir -p $(@D)
+DIR_DUP		= mkdir -p $(@D)
 
-all		: $(NORM) $(NAME)
+all		: norm $(NAME)
 
 norm	:
 	$(NORM)
