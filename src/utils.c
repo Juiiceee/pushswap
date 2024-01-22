@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:36:58 by lbehr             #+#    #+#             */
-/*   Updated: 2024/01/22 17:17:01 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/01/22 17:25:48 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,10 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-void	error(char *str)
+void	error(char *str, int argc, char **argv)
 {
+	if (argc == 2)
+		freetab(argv);
 	ft_putstr_fd("Error\n", 2);
 	ft_putstr_fd(str, 2);
 	ft_putstr_fd("\n", 2);

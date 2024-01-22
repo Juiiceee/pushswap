@@ -6,7 +6,7 @@
 #    By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 15:57:01 by lbehr             #+#    #+#              #
-#    Updated: 2024/01/22 17:12:14 by lbehr            ###   ########.fr        #
+#    Updated: 2024/01/22 17:34:25 by lbehr            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS		:= push_swap.c swap.c push.c sortcomplexe.c sort2-3.c sort4-5.c rotate.c r
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 CC			:= cc
-#NORM		:= norminette $(SRC_DIR)/*.c inc/*.h include/*
+NORM		:= norminette $(SRC_DIR)/*.c inc/*.h include/*
 CFLAGS		:= -Wall -Wextra -Werror -g3
 RM			:= rm -rf
 DIR_DUP		= mkdir -p $(@D)
@@ -50,4 +50,4 @@ fclean	:	clean
 
 re		:	fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re norm

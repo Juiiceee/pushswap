@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:34:49 by lbehr             #+#    #+#             */
-/*   Updated: 2024/01/22 17:08:49 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/01/22 17:34:05 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,8 @@ void	printstack(t_stack *a, t_stack *b)
 	ft_printf("NULL\n");
 }
 
-int	main(/*int argc, char **argv*/)
+int	main(int argc, char **argv)
 {
-	int argc = 2;
-	char *argv[] = {"coucou", "2147483660"};
 	t_stack	*a;
 	t_stack	*b;
 

@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:34:22 by lbehr             #+#    #+#             */
-/*   Updated: 2024/01/22 17:09:06 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/01/22 17:33:24 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ void	checkentry(int argc, char **argv)
 	while (str[i])
 	{
 		if (!checkdigit(str[i]))
-			return (error("Ce ne sont pas que des nombres"));
+			return (error("Ce ne sont pas que des nombres", argc, str));
 		nb = ft_atoi(str[i]);
 		if (nb < -2147483648 || nb > 2147483647)
-			return (error("Nombre plus grand qu'un int"));
+			return (error("Nombre plus grand ou petit qu'un int", argc, str));
 		i++;
 	}
 	if (!checkdoublon(str))
-		return (error("Il y a des doublons ou trop de nombre"));
+		return (error("Il y a des doublons", argc, str));
 	if (argc == 2)
 		freetab(str);
 }

@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:39:44 by lbehr             #+#    #+#             */
-/*   Updated: 2024/01/22 11:40:27 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/01/22 17:26:14 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void		checkentry(int argc, char **argv);
 
 //utils.c
 void		ft_putstr_fd(char *s, int fd);
-void		error(char *str);
+void		error(char *str, int argc, char **argv);
 void		freelist(t_stack *a, t_stack *b);
 void		freetab(char **str);
 int			checkdoublon(char **argv);
