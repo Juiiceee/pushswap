@@ -6,7 +6,7 @@
 #    By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 15:57:01 by lbehr             #+#    #+#              #
-#    Updated: 2024/01/22 17:34:25 by lbehr            ###   ########.fr        #
+#    Updated: 2024/01/23 10:52:39 by lbehr            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,8 @@ NORM		:= norminette $(SRC_DIR)/*.c inc/*.h include/*
 CFLAGS		:= -Wall -Wextra -Werror -g3
 RM			:= rm -rf
 DIR_DUP		= mkdir -p $(@D)
+TESTEUR		:= git clone https://github.com/SimonCROS/push_swap_tester.git
+TEST		:= ./push_swap_tester/complexity -f bin/push_swap
 
 all		: norm $(NAME)
 
@@ -37,6 +39,24 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(DIR_DUP)
 	$(CC) -c $< $(CFLAGS) -o $@
 
+testeur :
+	$(TESTEUR)
+	@make -C ./push_swap_tester --no-print-directory
+
+test3	:
+	$(TEST) 3 500 3 checker_linux
+
+test5	:
+	$(TEST) 5 500 12 checker_linux
+
+test100	:
+	$(TEST) 100 500 1100 checker_linux
+
+test500	:
+	$(TEST) 500 500 7000 checker_linux
+
+test	: $(NAME) test3 test5 test100 test500
+
 clean	:
 	$(RM) $(OBJS)
 	$(RM) $(OBJ_DIR)
@@ -45,9 +65,10 @@ clean	:
 
 fclean	:	clean
 	$(RM) bin
+	$(RM) push_swap_tester
 	@make -C include/ft_printf fclean --no-print-directory
 	@make -C include/liste fclean --no-print-directory
 
 re		:	fclean all
 
-.PHONY: all clean fclean re norm
+.PHONY: all clean fclean re norm test3 test5 test100 test500 test testeur
