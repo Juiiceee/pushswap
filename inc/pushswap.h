@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:39:44 by lbehr             #+#    #+#             */
-/*   Updated: 2024/01/22 17:26:14 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/01/26 11:42:46 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		ft_putstr_fd(char *s, int fd);
 void		error(char *str, int argc, char **argv);
 void		freelist(t_stack *a, t_stack *b);
 void		freetab(char **str);
-int			checkdoublon(char **argv);
+int			checkdoublon(char **argv, int argc);
 
 //sort2-3.c
 void		cas3(t_stack **stack);

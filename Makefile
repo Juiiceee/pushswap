@@ -6,7 +6,7 @@
 #    By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/12 15:57:01 by lbehr             #+#    #+#              #
-#    Updated: 2024/01/23 10:52:39 by lbehr            ###   ########.fr        #
+#    Updated: 2024/01/26 14:46:02 by lbehr            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,10 @@ SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 CC			:= cc
 NORM		:= norminette $(SRC_DIR)/*.c inc/*.h include/*
+ARG3 := $(shell shuf -i 1-2000000 -n 3 | awk '{print $$1-1000000}' | tr '\n' ' ')
+ARG5 := $(shell shuf -i 1-2000000 -n 5 | awk '{print $$1-1000000}' | tr '\n' ' ')
+ARG100 := $(shell shuf -i 1-2000000 -n 100 | awk '{print $$1-1000000}' | tr '\n' ' ')
+ARG500 := $(shell shuf -i 1-2000000 -n 500 | awk '{print $$1-1000000}' | tr '\n' ' ')
 CFLAGS		:= -Wall -Wextra -Werror -g3
 RM			:= rm -rf
 DIR_DUP		= mkdir -p $(@D)
@@ -39,21 +43,21 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	$(DIR_DUP)
 	$(CC) -c $< $(CFLAGS) -o $@
 
-testeur :
-	$(TESTEUR)
-	@make -C ./push_swap_tester --no-print-directory
-
 test3	:
-	$(TEST) 3 500 3 checker_linux
+	./bin/push_swap $(ARG3) | ./checker_linux $(ARG3)
+	./bin/push_swap $(ARG3) | wc -l
 
 test5	:
-	$(TEST) 5 500 12 checker_linux
+	./bin/push_swap $(ARG5) | ./checker_linux $(ARG5)
+	./bin/push_swap $(ARG5) | wc -l
 
 test100	:
-	$(TEST) 100 500 1100 checker_linux
+	./bin/push_swap $(ARG100) | ./checker_linux $(ARG100)
+	./bin/push_swap $(ARG100) | wc -l
 
 test500	:
-	$(TEST) 500 500 7000 checker_linux
+	./bin/push_swap $(ARG500) | ./checker_linux $(ARG500)
+	./bin/push_swap $(ARG500) | wc -l
 
 test	: $(NAME) test3 test5 test100 test500
 

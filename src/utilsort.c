@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:37:09 by lbehr             #+#    #+#             */
-/*   Updated: 2024/01/22 11:38:21 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/01/26 12:50:29 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	putindex(t_stack **stack)
 
 int	istrie(t_stack *stack)
 {
+	if (!stack)
+		return (1);
 	while (stack->next)
 	{
 		if (!(stack->value < stack->next->value))

@@ -6,7 +6,7 @@
 /*   By: lbehr <lbehr@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:34:49 by lbehr             #+#    #+#             */
-/*   Updated: 2024/01/22 17:34:05 by lbehr            ###   ########.fr       */
+/*   Updated: 2024/01/26 12:50:40 by lbehr            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int	main(int argc, char **argv)
 	t_stack	*b;
 
 	if (argc < 2)
+		return (0);
+	if (ft_strlen(argv[1]) <= 0)
 		return (0);
 	checkentry(argc, argv);
 	a = NULL;
